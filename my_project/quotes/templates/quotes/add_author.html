@@ -1,0 +1,36 @@
+{% extends 'my_project/base.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Add author</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Name
+            {{ form.fullname }}
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Born date
+            {{ form.born_date }}
+
+        <div id="passwordHelpBlock" class="form-text">
+              Please enter the date in the format YYYY-MM-DD
+        </div>
+                </label>
+        </div>
+      <div class="mb-3">
+            <label class="form-label">Born location
+            {{ form.born_location }}
+            </label>
+        </div>
+      <div class="mb-3">
+            <label class="form-label">Description
+            {{ form.description }}
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'my_project/base.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <h2>Add quote</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Author
+            {{ form.author }}
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Quote
+            {{ form.quote}}
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Tags
+            {{ form.tags}}
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+    </form>
+</div>
+{% endblock %}

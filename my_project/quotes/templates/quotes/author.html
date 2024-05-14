@@ -1,0 +1,22 @@
+{% extends 'my_project/base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h2>{{ author.fullname }}</h2>
+</div>
+<div class="container">
+   <h3 class="text" itemprop="text">Born date</h3>
+    <span class="text" itemprop="text">{{ author.born_date }}</span>
+</div>
+</div>
+<div class="container">
+   <h3 class="text" itemprop="text">Born location</h3>
+    <span class="text" itemprop="text">{{ author.born_location }}</span>
+</div>
+<div class="container">
+   <h3 class="text" itemprop="text">About</h3>
+    <span class="text" itemprop="text">{{ author.description }}</span>
+</div>
+
+{% endblock %}
