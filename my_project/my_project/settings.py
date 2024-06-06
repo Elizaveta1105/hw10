@@ -1,9 +1,16 @@
 import os
 from pathlib import Path
 
+import environ
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 print(BASE_DIR)
+
+env_path = os.path.join(BASE_DIR, '.env')
+env = environ.Env()
+environ.Env.read_env(env_path)
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -115,3 +122,13 @@ LOGIN_REDIRECT_URL = 'quotes:main'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env('MAIL_SERVER')
+EMAIL_PORT = env('MAIL_PORT')
+EMAIL_STARTTLS = False
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+EMAIL_HOST_USER = env('MAIL_USERNAME')
+EMAIL_HOST_PASSWORD = env('MAIL_PASSWORD')
+DEFAULT_FROM_EMAIL = env('MAIL_FROM')
